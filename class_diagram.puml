@@ -1,0 +1,33 @@
+@startuml
+
+class InvoiceService {
+  - scanner: Scanner
+  - invoices: List<Invoice>
+  - nextInvoiceNumber: int
+  + newInvoice(): Invoice
+  + showInvoices(int): void
+}
+
+class Invoice {
+  - items: List<InvoiceItem>
+  - invoiceNumber: int
+  - customerName: String
+  + Invoice(int, String)
+  + addItem(InvoiceItem): void
+  + getTotalAmount(): double
+  + toString(): String
+}
+
+class InvoiceItem {
+  - productName: String
+  - quantity: int
+  - price: double
+  + InvoiceItem(String, int, double)
+  + getTotal(): double
+  + toString(): String
+}
+
+InvoiceService --> Invoice : Manages
+Invoice --> InvoiceItem : Contains
+
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+
+actor User
+
+User --> (Create Invoice)
+User --> (Show Invoice)
+User --> (Close Invoice)
+
+(Show Invoice) --> (Console)
+(Create Invoice) --> Console
+(Close Invoice) --> Console
+
+@enduml
